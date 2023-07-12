@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: khay-test-api
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8081/realms/test-microservice
+            user-name-attribute: preferred_username
+        resourceserver:
+          jwt:
+            issuer-uri: http://localhost:8081/realms/test-microservice
