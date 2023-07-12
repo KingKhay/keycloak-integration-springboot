@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 
@@ -20,7 +21,7 @@ public class SecurityConfig {
 
     @Bean
     protected SessionAuthenticationStrategy sessionAuthenticationStrategy(){
-        return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
+        return new NullAuthenticatedSessionStrategy();
     }
 
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
