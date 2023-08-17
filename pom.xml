@@ -66,6 +66,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>keycloak</finalName>
 	</build>
 
 </project>
