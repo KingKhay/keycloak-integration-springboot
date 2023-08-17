@@ -5,10 +5,14 @@ pipeline {
     }
     stages  {
         stage('Checkout Code') {
-            checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KingKhay/keycloak-integration-springboot.git']])
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KingKhay/keycloak-integration-springboot.git']])
+            }
         }
         stage('Build Project') {
-            sh 'mvn clean package'
+            steps {
+                sh 'mvn clean package'
+            }
         }
     }
 }
